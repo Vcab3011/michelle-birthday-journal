@@ -24,24 +24,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* 4 Corner Flowers */}
         <div className="absolute top-0 left-0 w-40 h-40 opacity-50 z-[-10] rotate-[15deg]">
-          <img src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw" alt="Flower" className="w-full h-full object-contain" />
+          <img src="/lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute top-0 right-0 w-40 h-40 opacity-50 z-[-10] rotate-[-15deg]">
-          <img src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw" alt="Flower" className="w-full h-full object-contain" />
+          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute bottom-0 left-0 w-40 h-40 opacity-50 z-[-10] rotate-[-165deg]">
-          <img src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw" alt="Flower" className="w-full h-full object-contain" />
+          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute bottom-0 right-0 w-40 h-40 opacity-50 z-[-10] rotate-[165deg]">
-          <img src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw" alt="Flower" className="w-full h-full object-contain" />
+          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
 
         {/* Watercolor Background Images */}
         <div className="absolute top-[10%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-40 mix-blend-multiply rotate-[-15deg] pointer-events-none">
-          <img src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw" alt="" className="w-full h-full object-contain" />
+          <img src="lily.png" alt="" className="w-full h-full object-contain" />
         </div>
-        <div className="absolute bottom-[20%] right-[-10%] w-72 md:w-[500px] h-72 md:h-[500px] opacity-40 mix-blend-multiply rotate-[25deg] pointer-events-none">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuH8wN8RkYvUqG2pZzO0W6H8k0l_z6r_8Q0f1m8x0n4b6v9z8y7x6c5v4b3n2m1l0k9j8h7g6f5d4s3a2q1w0e9r8t7y6u5i4o3p2" alt="" className="w-full h-full object-contain" />
+        <div className="absolute bottom-[20%] right-[-10%] w-72 md:w-[500px] h-72 md:h-[500px] opacity-40 mix-blend-multiply rotate-[0deg] pointer-events-none">
+          <img src="peony.png" alt="" className="w-full h-full object-contain" />
         </div>
       </div>
 

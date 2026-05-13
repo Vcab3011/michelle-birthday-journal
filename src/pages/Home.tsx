@@ -4,7 +4,7 @@ import { Polaroid, WashiTape } from '../components/ScrapbookUI';
 
 const Home: React.FC = () => {
   return (
-    <div className="min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-12 mt-8 md:mt-0">
+    <div className="relative min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-12 mt-8 md:mt-0">
       {/* Hero Image Section */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         className="relative w-64 h-64 md:w-96 md:h-96"
       >
         <Polaroid 
-          src="https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw"
+          src="/lily.png"
           rotation={3}
           className="drop-shadow-2xl z-10"
         />
@@ -42,6 +42,21 @@ const Home: React.FC = () => {
           </p>
         </motion.div>
       </div>
+
+      {/* Hani & Kira Scrapbook Stickers */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-8 right-8 hidden md:flex flex-col gap-4 z-20"
+      >
+        <div className="w-28 rotate-[-5deg]">
+          <Polaroid src="/hani.png" rotation={-5} className="shadow-md" />
+        </div>
+        <div className="w-28 rotate-[5deg] -mt-8">
+          <Polaroid src="/kira.png" rotation={5} className="shadow-md" />
+        </div>
+      </motion.div>
     </div>
   );
 };
