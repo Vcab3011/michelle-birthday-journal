@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="relative min-h-screen overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+    <div className="relative min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
       {/* Watercolor Background Elements */}
       <div className="fixed inset-0 pointer-events-none z-[-1]">
         <div className="absolute top-[-10vw] left-[-10vw] w-[40vw] h-[40vw] rounded-full bg-primary-container opacity-20 blur-[80px]" />
@@ -37,11 +37,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </div>
 
         {/* Watercolor Background Images */}
-        <div className="absolute top-[10%] left-[-5%] w-64 md:w-96 h-64 md:h-96 opacity-40 mix-blend-multiply rotate-[-15deg] pointer-events-none">
+        <div className="absolute top-[10%] left-[-1%] w-64 md:w-96 h-64 md:h-96 opacity-40 mix-blend-multiply rotate-[-15deg] pointer-events-none">
           <img src="lily.png" alt="" className="w-full h-full object-contain" />
         </div>
-        <div className="absolute bottom-[20%] right-[-10%] w-72 md:w-[500px] h-72 md:h-[500px] opacity-40 mix-blend-multiply rotate-[0deg] pointer-events-none">
-          <img src="peony.png" alt="" className="w-full h-full object-contain" />
+        <div className="absolute bottom-[20%] right-[2%] w-72 md:w-[300px] h-72 md:h-[300px] opacity-40 mix-blend-multiply rotate-[15deg] pointer-events-none">
+          <img src="peony1.png" alt="" className="w-full h-full object-contain" />
         </div>
       </div>
 

@@ -29,7 +29,7 @@ const Letters: React.FC = () => {
           viewport={{ once: true }}
           className="relative bg-journal-bg p-1 rounded-sm shadow-xl hover:scale-[1.01] transition-transform duration-500"
         >
-          <WashiTape className="-top-3 left-1/2 -translate-x-1/2 w-16" color="bg-secondary-container/40" />
+          <WashiTape src="/tape1.png" className="-top-3 left-1/2 -translate-x-1/2 w-50" />
           
           <div className="bg-white p-8 md:p-16 relative overflow-hidden" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 98% 100%, 95% 96%, 92% 100%, 89% 95%, 86% 100%, 83% 96%, 80% 100%, 77% 95%, 74% 100%, 71% 96%, 68% 100%, 65% 95%, 62% 100%, 59% 96%, 56% 100%, 53% 95%, 50% 100%, 47% 96%, 44% 100%, 41% 95%, 38% 100%, 35% 96%, 32% 100%, 29% 95%, 26% 100%, 23% 96%, 20% 100%, 17% 95%, 14% 100%, 11% 96%, 8% 100%, 5% 95%, 2% 100%, 0 96%)' }}>
             

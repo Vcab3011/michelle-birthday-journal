@@ -5,7 +5,8 @@ export interface Memory {
   id: string;
   title: string;
   date: string;
-  image: string;
+  image?: string;      // Thêm dấu ? để biến nó thành tuỳ chọn (phòng hờ)
+  images?: string[];   // THÊM DÒNG NÀY: Mảng chứa nhiều ảnh
   caption: string;
   content: string;
   tags: string[];
@@ -14,54 +15,50 @@ export interface Memory {
 
 export const memories: Memory[] = [
   {
-    id: "golden-hour-2024",
-    title: "Golden Hour, 2024",
-    date: "OCTOBER 14TH, 04:32 PM",
-    image: "https://lh3.googleusercontent.com/aida/ADBb0uhdx73EPWKm8JJhD804BWRT_xFbDr8zkRQ1tE0GRqjfez8wbNzIb5CLz0fa80_Wlvd1kgsfnMUBH_zBS7KjDFR_KZAQlHndJO5oyRXLjfj1dpOhzpHWrQTCSJlL05y3hZJEcJXO1DAWLu5n_z-Q_-T-lWvUc2cpCsfV_LcwM1YZu3YnH4J3biQVhc2AwMoGaH3M3fGmX27Jo7ywvlBsxA_DsBfmBMaHYCsDVySeIQGFmioHv6aymECDsaw",
-    caption: "The light was caught in the curtains...",
-    content: "Today felt like a painting waiting to happen. The air was crisp, carrying that specific scent of wet earth and drying leaves that only exists for a few weeks in October. I spent the better part of the afternoon just watching how the light moved across the floor.\n\n\"Everything is temporary, but these pages keep them still.\"\n\nI found this old film camera at the back of the closet. It still had three frames left. I took this one right as the sun hit the horizon. The way the shadows stretched long and thin felt like a secret being whispered. It’s strange how a single image can hold so much of a day's weight.",
-    tags: ["afternoons", "nature-study", "home"],
+    id: "gym-chronicles",
+    title: "Gym Dates & Cat Energy",
+    date: "FEBRUARY 18TH, 08:30 PM",
+    image: "/gymmain.png", 
+    // THÊM DÒNG NÀY: Điền danh sách các ảnh ông muốn hiện ở trang chi tiết vào đây
+    images: ["/gymmain.png","/gym1.PNG", "/gym2.png", "/gym3.png"], 
+    caption: "Gym dates and sleepy cat energy. 💪✨",
+    content: "A collection of our gym moments. I love how you give it your all and then immediately turn into a sleepy kitten. No matter how exhausted you get, there's a quiet resilience in you. Siempre hermosa, even when you're completely exhausted. Cultivating strength together, one day at a time.",
+    tags: ["gym", "sleepy-cat", "mi-niña"],
     rotation: 2
   },
   {
-    id: "cafe-morning",
-    title: "Cafe Morning",
-    date: "NOVEMBER 2ND, 10:15 AM",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8WfF2f4MyUNrJdaifT5AWuFfF-rmEwT_NB_R1WL22Fo-zYK-b8aGMbyJoFx-ED6DJQO1VQriI-aLNhx7MJz8Ad6ooYeJO9eeBC8dN4BuTrEaUGaBoJUX25WoIStkKPtjhyLuYh_kiOIs3YmJbbY2IjM_bAWilduVNuwnmoIETxjRhvEGiIzyj2HnEGDWLP43-US5zSp0E29o4o9OJZzBYl9ETfXuNojNA7p7FYHFRzoTNctcikgsigvFVDs5jJVL2cEz5PPIO3-U",
-    caption: "That morning in the cafe... ☕️",
-    content: "The smell of roasting beans always takes me back. We spent hours here, just talking and drawing in our sketchbooks. The window was fogged up from the rain outside, making the whole world feel distant and soft.",
-    tags: ["coffee", "sketchbook", "rainy-days"],
+    id: "cafe-and-smiles",
+    title: "Café, Food & You",
+    date: "MARCH 12TH, 12:45 PM",
+    image: "/sbmain.png", 
+    // Điền các ảnh khác vào mảng này
+    images: ["/sbmain.png", "/coffee_1.png"], 
+    caption: "Café, deep talks y esa sonrisa tuya. ☕🤍",
+    content: "From Starbucks runs to random bursts of excitement over good food. Catching those quiet moments when your beautifully complex mind is at work is a privilege. Y esa sonrisa tuya... it's my absolute favorite. I could watch you enjoy these little things all day. Porque cada momento contigo es arte.",
+    tags: ["coffee", "foodie", "esa-sonrisa"],
     rotation: -2
   },
   {
-    id: "lost-in-hills",
-    title: "Lost in the Hills",
-    date: "JULY 15TH, 02:00 PM",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCERQHa-u96f6TKFQeS04fkmUeadILnGsSpYjxD_I6ajGRc7cvmsp4Njq_lsC4V8CMGc_OwgqwbhBIhqsHeQ7CmYp70nZ6QAjeC5gk8ioM6hV37_bmzSFrxHQffmu4kgOqRnyL1F7thLsX8boBbMqQYEZZOF1OWRp_r5htIRvw2OMN3ynFdUB3RbmnO7oB4xRVA8t_3tdQObWXVELWccwlftE59ZHKlUHFTZ5D7WS5hrLq98B828Sl5kEEd7YSNZ6kC0LDywFR8gD8",
-    caption: "Lost in the hills 🌿",
-    content: "The green was almost overwhelming. We hiked until our legs burned, but the view from the top was worth every step. The air smelled like pine and distant summer storms.",
-    tags: ["hiking", "summer", "greenery"],
+    id: "wildlife-halifax",
+    title: "Escapes & Adventures",
+    date: "APRIL 28TH, 03:15 PM",
+    image: "/halifaxmain.png", 
+    images: ["/halifaxmain.png", "/halifax_1.png"],
+    caption: "Paz, tranquilidad y aventuras en Halifax. 🌲🌊",
+    content: "Whether we are looking at animals in the park or exploring Halifax by the water, being with you feels like peace. You in your natural element, surrounded by nature and your whimsy. Creando recuerdos inolvidables contigo. Every little trip is a new beautiful chapter in our story.",
+    tags: ["wildlife", "halifax", "paz"],
     rotation: 1
   },
   {
-    id: "birthday-cake",
-    title: "Birthday Wish",
-    date: "MAY 13TH, 08:30 PM",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIxcKxu34ApvDHkcdWlzwZSNkPt5L6tltMeFuGdxjWuoHQNvjqcXwWjs9hab5AD1QvQT6X-CLOv-y10NtxLzyWBaq_HVXm0Ed7Sz7yxmPE1H4yfLOxHrQopV2MWhHbmgrXM2WDQEQZy3vJhzCWYFQ7vBhdtlICjJqkrBiDnjz_FK-gSSPStfalL7VYw3RzQnWuukPqPa2je8N_s9BUssbm1CaXYdNvZmubGVADxQgFAOk6xCJZLah-nAMSXg0zDX3JN3NW_T-SuLg",
-    caption: "Make a wish! ✨🎂",
-    content: "2024. Another year of magic. The cake was perfect, and the room was full of laughter and light. I felt so loved.",
-    tags: ["celebration", "birthday", "cake"],
-    rotation: 3
-  },
-  {
-    id: "sleepy-head",
-    title: "Sleepy Head",
-    date: "APRIL 20TH, 03:00 PM",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA8zvZFr0b0XY-hLt8504mIRO-w_Pi1VjBCuCMPwwYJ3QwN70ZVpN58QA5zSb8odUaPx1rqjQw8WFCJxHA5lFC_RnJHbNBUUc3p2gv0sapmEpPl4V3xZf-Cs7wSjjX5r-gvWrOhSPUzzx_JHrx_a5KMKVwjBdHpT_itWHrXIH-xHU-aUL_BWJF6B0PjZYqa1xU9P8ioXD2wmPYD6NY6Grq89wyqa0aV2m-pmW4h2tVLMjHv5yy0UbJk4JWO2gATvQMyQijQ3M3KiF4",
-    caption: "Sleepy head 🐾",
-    content: "Found this one curled up in the sunniest spot of the house. Pure peace in a ginger ball of fur.",
-    tags: ["cats", "afternoon-nap", "peaceful"],
-    rotation: -1
+    id: "everyday-magic",
+    title: "En Cada Fase",
+    date: "MAY 10TH, 05:00 PM",
+    image: "/happymain.png", 
+    images: ["/happymain.png", "/art_1.png", "/art_2.png"],
+    caption: "Art stores, car snacks, and the real you. 🎨🌙",
+    content: "Looking at sketchbooks for your graphic design dreams, sleeping in massage chairs, and snacking in the car. These are the random, beautiful moments of your día a día. I will always cherish the real you—en cada fase y en cada versión de ti. Seeing your passion and just being comfortable around me means the world.",
+    tags: ["art", "everyday-magic", "mi-luna"],
+    rotation: -3
   }
 ];
 

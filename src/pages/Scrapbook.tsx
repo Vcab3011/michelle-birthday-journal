@@ -9,20 +9,20 @@ const Scrapbook: React.FC = () => {
       {/* Header */}
       <div className="text-center mb-16 relative z-10">
         <div className="inline-block relative">
-          <WashiTape className="-top-3 -left-8 w-20 -rotate-6" color="bg-sage/50" />
+          <WashiTape src="/tape1.png" className="-top-3 -left-8 w-20 -rotate-6" />
           <h2 className="font-caveat text-6xl md:text-7xl text-ink bg-journal-bg/80 px-12 py-6 rounded-sm paper-shadow rotate-[1deg] inline-block border border-journal-dim">
             Memories & Moments
           </h2>
-          <WashiTape className="-bottom-3 -right-8 w-24 rotate-6" color="bg-secondary-container/50" />
+          <WashiTape src="/tape2.png" className="-bottom-3 -right-8 w-24 rotate-6" color="bg-secondary-container/50" />
         </div>
         <p className="font-serif text-lg text-ink-variant mt-8 max-w-2xl mx-auto bg-journal-dim/20 p-6 rounded-2xl rotate-[-1deg] backdrop-blur-sm">
-          A messy, beautiful collection of our favorite times together. Flipping through these pages brings back all the smiles.
+          Tú a través de mi lente. A messy, beautiful collection of my favorite views from the past 5 months. Not just in the gym, sino en tu día a día capturing your memories along the way. Flipping through these pages brings back all the smiles. Porque cada momento contigo es arte.
         </p>
       </div>
 
       {/* Masonry Grid */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-12 space-y-12">
-        {memories.map((memory, index) => (
+       {memories.map((memory, index) => (
           <motion.div
             key={memory.id}
             initial={{ opacity: 0, y: 30 }}
@@ -32,7 +32,9 @@ const Scrapbook: React.FC = () => {
           >
             <Polaroid 
               id={memory.id}
-              src={memory.image}
+              // SỬA DÒNG NÀY: Lấy ảnh đầu tiên trong mảng images làm ảnh bìa. 
+              // Thêm dự phòng || memory.image lỡ ông quên chưa update data cũ.
+              src={memory.images ? memory.images[0] : memory.image} 
               caption={memory.caption}
               rotation={memory.rotation}
             />

@@ -11,6 +11,12 @@ const MemoryDetail: React.FC = () => {
 
   if (!memory) return <div>Memory not found</div>;
 
+  // Lấy danh sách ảnh từ mảng `images` trong data.ts. 
+  // Nếu bài viết cũ chỉ có `image`, nó sẽ fallback về mảng 1 phần tử để không bị lỗi.
+  const displayImages = memory.images && memory.images.length > 0 
+    ? memory.images 
+    : [memory.image];
+
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -23,7 +29,7 @@ const MemoryDetail: React.FC = () => {
           to="/scrapbook"
           className="group flex items-center gap-2 px-6 py-3 bg-journal-bg/80 backdrop-blur-sm -rotate-2 hover:rotate-0 transition-all rounded-sm paper-shadow border border-journal-dim relative"
         >
-          <WashiTape className="-top-3 left-1/2 -translate-x-1/2 w-16" color="bg-sage/40" />
+          <WashiTape className="-top-3 left-1/2 -translate-x-1/2 w-16" src="/tape1.png" />
           <ArrowLeft size={18} className="text-terracotta" />
           <span className="font-mono text-xs uppercase tracking-wider text-terracotta">Back to Scrapbook</span>
         </Link>
@@ -39,24 +45,37 @@ const MemoryDetail: React.FC = () => {
       </nav>
 
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-16 items-start">
-        {/* Left: Huge Polaroid */}
-        <div className="lg:col-span-5 w-full flex justify-center sticky top-24">
-          <motion.div 
-            initial={{ rotate: -5, scale: 0.9 }}
-            animate={{ rotate: 2, scale: 1 }}
-            className="relative"
-          >
-            <WashiTape className="-top-6 left-[-20px] w-32 -rotate-12" color="bg-sage/50" />
-            <Polaroid src={memory.image} rotation={0} className="max-w-md w-full" />
-            <WashiTape className="-bottom-4 right-[-10px] w-28 rotate-6" color="bg-secondary-container/40" />
-            
-            <div className="absolute -bottom-10 -left-8 text-tertiary-container/30 rotate-12">
-              <Sparkles size={64} />
-            </div>
-          </motion.div>
+        
+        {/* Left: Cột chứa nhiều Polaroid (Sửa ở đây) */}
+        <div className="lg:col-span-5 w-full flex flex-col gap-12 sticky top-24">
+          {displayImages.map((imgSrc, index) => (
+            <motion.div 
+              key={index}
+              // Thay đổi góc xoay luân phiên để nhìn giống ảnh dán lộn xộn tự nhiên
+              initial={{ rotate: index % 2 === 0 ? -5 : 5, scale: 0.9 }}
+              animate={{ rotate: index % 2 === 0 ? 2 : -2, scale: 1 }}
+              transition={{ delay: index * 0.15 }}
+              className="relative flex justify-center w-full"
+            >
+              {/* Thay đổi tape luân phiên */}
+              <WashiTape 
+                className="-top-3 left-1/2 -translate-x-1/2 w-32 -rotate-1" 
+                src={index % 2 === 0 ? "/tape1.png" : "/tape2.png"} 
+              />
+              
+              <Polaroid src={imgSrc} rotation={0} className="max-w-md w-full" />
+              
+              {/* Chỉ hiện sparkles ở tấm ảnh cuối cùng cho đỡ rối */}
+              {index === displayImages.length - 1 && (
+                <div className="absolute -bottom-10 -left-8 text-tertiary-container/30 rotate-12">
+                  <Sparkles size={64} />
+                </div>
+              )}
+            </motion.div>
+          ))}
         </div>
 
-        {/* Right: Journal Entry */}
+        {/* Right: Journal Entry (Giữ nguyên) */}
         <article className="lg:col-span-7 w-full relative">
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
