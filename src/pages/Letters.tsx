@@ -28,7 +28,6 @@ const Letters: React.FC = () => {
         
         {/* Page Header */}
         <section className="relative flex flex-col items-center text-center">
-          <div className="absolute -top-12 -left-8 w-24 h-6 bg-sage/30 rotate-[-5deg] z-10 washi-tape-mask" />
           <h1 className="font-caveat text-7xl text-terracotta mb-6 z-20">Letters to You</h1>
           <div className="bg-journal-bg p-10 rounded-xl paper-shadow border border-journal-dim rotate-[1deg] max-w-2xl relative">
             <p className="font-serif text-xl md:text-2xl text-ink-variant italic">
@@ -97,13 +96,27 @@ const Letters: React.FC = () => {
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
           className="relative ml-auto w-[90%] md:w-[70%] bg-white border-l-8 border-terracotta p-10 paper-shadow rotate-[2deg] mb-24"
         >
-          {/* NÚT BÍ MẬT ẨN DƯỚI HÌNH TRÁI TIM */}
-          <div 
-            className="absolute -top-4 -right-4 w-10 h-10 bg-mustard/40 hover:bg-terracotta/20 rounded-full flex items-center justify-center text-ink/50 hover:text-terracotta shadow-sm rotate-12 cursor-pointer transition-all duration-500 hover:scale-125 z-20"
+          {/* ==================================================== */}
+          {/* NÚT BÍ MẬT - TRÁI TIM NHẤP NHÁY (PULSE EFFECT) */}
+          {/* ==================================================== */}
+          <motion.div 
+            // Hiệu ứng nhịp đập: co giãn và mờ ảo nhẹ nhàng
+            animate={{ 
+              scale: [1, 1.15, 1],
+              opacity: [0.7, 1, 0.7],
+              rotate: [12, 15, 12] 
+            }}
+            transition={{ 
+              duration: 2, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="absolute -top-4 -right-4 w-10 h-10 bg-mustard/40 hover:bg-terracotta/40 rounded-full flex items-center justify-center text-xl cursor-pointer shadow-md z-20 border border-white/50 transition-colors"
             onClick={() => setShowSecret(true)}
           >
               ❤️ 
-          </div>
+          </motion.div>
+
           <p className="font-caveat text-3xl md:text-4xl text-ink leading-tight mb-4">
             "I hope you know how much you mean to me ;-;"
           </p>
@@ -143,38 +156,31 @@ const Letters: React.FC = () => {
               animate={{ opacity: 1, scale: 1, rotateX: 0, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 20, stiffness: 100 }}
-              className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar rounded-sm" // Thêm overflow-y-auto để có thể scroll nếu nội dung dài
+              className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scrollbar rounded-sm"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Lời nhắn nhỏ bên ngoài giấy Note */}
-              <div className="absolute -top-6 -left-6 z-20"> {/* Điều chỉnh lại vị trí xíu cho đỡ bị che */}
+              <div className="absolute -top-6 -left-6 z-20">
                 <StickyNote color="bg-mustard/40" rotate={-10} className="px-4 py-2 text-sm drop-shadow-xl">
                   <span className="font-caveat text-xl text-ink">You found it! 🤫</span>
                 </StickyNote>
               </div>
 
-              {/* Bức thư thật sự bên trong */}
               <div className="bg-[#fdfbf7] p-10 md:p-16 rounded-sm shadow-[0_0_50px_rgba(255,255,255,0.1)] relative overflow-hidden mt-6">
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("/paper-texture.png")' }}></div>
-                
                 <WashiTape src="/tape1.png" className="-top-3 right-10 w-24 rotate-3 opacity-80" />
                 
                 <h2 className="font-mono text-xs tracking-[0.3em] uppercase text-terracotta/80 mb-8 text-center border-b border-terracotta/20 pb-4">
                   For Your Eyes Only
                 </h2>
 
-                {/* ========================================= */}
-                {/* ẢNH THƯ SCAN BÍ MẬT Ở ĐÂY */}
-                {/* ========================================= */}
                 <div className="w-full flex justify-center mb-10 pb-8 border-b border-journal-dim/20">
                   <img 
-                    src="/secret.png" // <--- ẢNH SECRET CỦA ÔNG
+                    src="/secret.png" 
                     alt="Secret Handwritten Letter" 
                     className="max-w-full h-auto max-h-[400px] object-contain mix-blend-multiply drop-shadow-md" 
                   />
                 </div>
 
-                {/* Nội dung text backup bên dưới */}
                 <div className="font-serif text-xl md:text-2xl leading-relaxed text-ink/80 italic space-y-6">
                   <p>
                     Hey... if you're reading this, it means you clicked that little heart. You've always paid attention to the little details, haven't you?
