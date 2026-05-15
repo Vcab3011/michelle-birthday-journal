@@ -29,7 +29,7 @@ const MemoryDetail: React.FC = () => {
           to="/scrapbook"
           className="group flex items-center gap-2 px-6 py-3 bg-journal-bg/80 backdrop-blur-sm -rotate-2 hover:rotate-0 transition-all rounded-sm paper-shadow border border-journal-dim relative"
         >
-          <WashiTape className="-top-3 left-1/2 -translate-x-1/2 w-16" src="/tape1.png" />
+          <WashiTape className="-top-2 left-1/2 -translate-x-1/2 w-30" src="/tape2.png" />
           <ArrowLeft size={18} className="text-terracotta" />
           <span className="font-mono text-xs uppercase tracking-wider text-terracotta">Back to Scrapbook</span>
         </Link>
@@ -47,7 +47,7 @@ const MemoryDetail: React.FC = () => {
       <div className="flex flex-col lg:grid lg:grid-cols-12 gap-16 items-start">
         
         {/* Left: Cột chứa nhiều Polaroid (Sửa ở đây) */}
-        <div className="lg:col-span-5 w-full flex flex-col gap-12 sticky top-24">
+        <div className="lg:col-span-5 w-full flex flex-col gap-12 lg:sticky lg:top-24">
           {displayImages.map((imgSrc, index) => (
             <motion.div 
               key={index}

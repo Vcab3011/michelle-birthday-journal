@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./dist/assets/index-devnybkv.js","./src/app.tsx","./src/data.ts","./src/main.tsx","./src/components/layout.tsx","./src/components/scrapbookui.tsx","./src/pages/home.tsx","./src/pages/letters.tsx","./src/pages/memorydetail.tsx","./src/pages/scrapbook.tsx"],"version":"5.8.3"}

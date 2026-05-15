@@ -27,21 +27,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <img src="/lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute top-0 right-0 w-40 h-40 opacity-50 z-[-10] rotate-[-15deg]">
-          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
+          <img src="/lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute bottom-0 left-0 w-40 h-40 opacity-50 z-[-10] rotate-[-165deg]">
-          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
+          <img src="/lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
         <div className="absolute bottom-0 right-0 w-40 h-40 opacity-50 z-[-10] rotate-[165deg]">
-          <img src="lily.png" alt="Flower" className="w-full h-full object-contain" />
+          <img src="/lily.png" alt="Flower" className="w-full h-full object-contain" />
         </div>
 
         {/* Watercolor Background Images */}
         <div className="absolute top-[10%] left-[-1%] w-64 md:w-96 h-64 md:h-96 opacity-40 mix-blend-multiply rotate-[-15deg] pointer-events-none">
-          <img src="lily.png" alt="" className="w-full h-full object-contain" />
+          <img src="/lily.png" alt="" className="w-full h-full object-contain" />
         </div>
         <div className="absolute bottom-[20%] right-[2%] w-72 md:w-[300px] h-72 md:h-[300px] opacity-40 mix-blend-multiply rotate-[15deg] pointer-events-none">
-          <img src="peony1.png" alt="" className="w-full h-full object-contain" />
+          <img src="/peony1.png" alt="" className="w-full h-full object-contain" />
         </div>
       </div>
 
@@ -87,12 +87,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
+      {/* SỬA 1: Thêm pb-24 md:pb-8 để nội dung không bị che lấp khi lướt xuống đáy */}
+      <main className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-24 md:pb-8">
         {children}
       </main>
 
       {/* Mobile Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 pb-6 bg-journal-bg/80 backdrop-blur-md paper-shadow rounded-t-[40px] pt-4">
+      {/* SỬA 2: Thu nhỏ padding (px-4 pb-4 pt-3) và bo góc (rounded-t-3xl) */}
+      <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-3 bg-journal-bg/90 backdrop-blur-md paper-shadow rounded-t-3xl">
         {[
           { to: "/", label: "Home", icon: Home },
           { to: "/scrapbook", label: "Scrapbook", icon: Book },
@@ -102,16 +104,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             key={link.to}
             to={link.to}
             className={({ isActive }) => `
-              flex flex-col items-center justify-center p-2 rounded-full transition-all duration-300
+              flex flex-col items-center justify-center p-2 rounded-2xl transition-all duration-300
               ${isActive 
-                ? "bg-tertiary-container text-ink scale-110 -translate-y-2 rotate-[2deg] shadow-md" 
+                /* SỬA 3: Giảm độ nảy (scale-105 -translate-y-1) cho đỡ chiếm chỗ */
+                ? "bg-tertiary-container text-ink scale-105 -translate-y-1 rotate-[2deg] shadow-md" 
                 : "text-ink-variant hover:bg-tertiary-container/10"
               }
             `}
           >
             {({ isActive }) => (
               <>
-                <link.icon size={isActive ? 28 : 24} />
+                {/* SỬA 4: Thu nhỏ icon từ 28/24 xuống 24/20 */}
+                <link.icon size={isActive ? 24 : 20} />
                 <span className="font-mono text-[10px] mt-1">{link.label}</span>
               </>
             )}
