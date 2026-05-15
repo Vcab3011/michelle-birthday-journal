@@ -40,7 +40,7 @@ export const memories: Memory[] = [
   {
     id: "wildlife-halifax",
     title: "Nuestro Refugio en el Sol",
-    date: "May 2TH, 11:15 AM",
+    date: "May 2, 2026, 11:15 AM",
     image: "/halifax/halifaxmain.png", 
     images: ["/halifax/halifaxmain.png","/halifax/park1.png","/halifax/parkvideo1.mp4","/halifax/park2.png","/halifax/parkvideo2.mp4","/halifax/halifax1.png","/halifax/halifax2.png"],
     caption: "Sunlight, peace y lo más bonito: Tú. 🌲🌊",
@@ -51,7 +51,7 @@ export const memories: Memory[] = [
   {
     id: "everyday-magic",
     title: "Paz en tus Silencios",
-    date: "Febuary 26TH, 05:49 PM",
+    date: "Febuary 26, 2026, 05:49 PM",
     image: "/happymain.png", 
     images: ["/happy/happymain.png", "/happy/happy5.png", "/happy/happyvideo1.mp4","/happy/happy1.png","/happy/happyvideo2.mp4","/happy/happy2.png","/happy/happyvideo3.mp4","/happy/happy4.png"],
     // Caption mới nhấn mạnh vào sự thấu hiểu và niềm tin
