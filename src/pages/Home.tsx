@@ -78,13 +78,23 @@ const Home: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* POPUP BÁNH SINH NHẬT (Giữ nguyên logic của ông) */}
+      {/* ========================================= */}
+      {/* POPUP BÁNH SINH NHẬT KHỔNG LỒ - ĐÃ FIX MOBILE */}
+      {/* ========================================= */}
       <AnimatePresence>
         {showCake && (
           <div 
             className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#1e1b2e]/95 backdrop-blur-md overflow-hidden"
             onClick={() => setShowCake(false)}
           >
+            {/* NÚT ĐÓNG (X) CHO ĐIỆN THOẠI */}
+            <button 
+              className="absolute top-6 right-6 text-white/50 hover:text-white text-3xl z-[110] p-4"
+              onClick={() => setShowCake(false)}
+            >
+              ✕
+            </button>
+
             {/* ĐỐM SÁNG BAY BACKGROUND */}
             <div className="absolute inset-0 pointer-events-none">
               {magicStars.map((star, i) => (
@@ -106,7 +116,7 @@ const Home: React.FC = () => {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.8, opacity: 0, y: 20 }}
               className="relative flex flex-col items-center z-10"
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()} // Bấm vào bánh thì không tắt
             >
               
               <AnimatePresence>
@@ -130,7 +140,7 @@ const Home: React.FC = () => {
                 <img 
                   src="/cake.png" 
                   alt="Birthday Cake" 
-                  className="w-80 md:w-[450px] lg:w-[500px] h-auto object-contain drop-shadow-2xl relative z-10" 
+                  className="w-72 md:w-[450px] lg:w-[500px] h-auto object-contain drop-shadow-2xl relative z-10" 
                 />
 
                 <AnimatePresence>
@@ -169,20 +179,27 @@ const Home: React.FC = () => {
                 {!blown ? (
                   <button 
                     onClick={() => setBlown(true)} 
-                    className="bg-white/10 hover:bg-terracotta/80 text-white px-8 py-3 rounded-full backdrop-blur-md font-mono tracking-widest transition-all border border-white/30 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] animate-pulse"
+                    className="bg-white/10 hover:bg-terracotta/80 text-white px-8 py-3 rounded-full backdrop-blur-md font-mono tracking-widest transition-all border border-white/30 hover:scale-105 active:scale-95"
                   >
                     BLOW THE CANDLE 💨
                   </button>
                 ) : (
-                  <motion.div initial={{ opacity: 0, y: 10, scale: 0.8 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ delay: 0.5, duration: 1, type: 'spring' }} className="flex flex-col items-center">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10, scale: 0.8 }} 
+                    animate={{ opacity: 1, y: 0, scale: 1 }} 
+                    className="flex flex-col items-center cursor-pointer"
+                    onClick={() => setShowCake(false)} // Bấm vào dòng chữ này cũng tắt luôn
+                  >
                     <motion.p 
                       animate={{ textShadow: ["0px 0px 10px rgba(253,224,71,0.5)", "0px 0px 30px rgba(253,224,71,1)", "0px 0px 10px rgba(253,224,71,0.5)"] }}
                       transition={{ repeat: Infinity, duration: 2 }}
-                      className="font-caveat text-7xl text-yellow-100 mb-2 text-center"
+                      className="font-caveat text-6xl md:text-7xl text-yellow-100 mb-2 text-center"
                     >
                       Make a wish! ✨
                     </motion.p>
-                    <p className="font-mono text-xs text-white/50 uppercase tracking-widest mt-2 animate-bounce">Click anywhere to close</p>
+                    <p className="font-mono text-xs text-white/50 uppercase tracking-widest mt-2 animate-bounce">
+                      Tap here to close
+                    </p>
                   </motion.div>
                 )}
               </div>
