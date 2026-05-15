@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 mt-8 md:mt-0 px-4 overflow-x-hidden">
+    <div className="relative min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 mt-8 md:mt-0 px-4 overflow-x-hidden">
       
       {/* BACKGROUND SCRAPBOOK */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden hidden lg:block">
@@ -41,35 +41,48 @@ const Home: React.FC = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 1.8, duration: 4 }} className="absolute top-[40%] right-[2%] w-48 rotate-[5deg]"><img src="/hanikira.png" alt="hanikira background" className="w-full mix-blend-multiply opacity 1" /></motion.div>
       </div>
 
-      <motion.div initial={{ opacity: 0, scale: 0.9, rotate: -5 }} animate={{ opacity: 1, scale: 1, rotate: 3 }} transition={{ delay: 0.3, duration: 3.5, ease: [0.25, 0.1, 0.25, 1] }} className="relative w-40 h-40 md:w-72 md:h-72 shrink-0 z-10">
-        <Polaroid src="/meandher.png" rotation={3} className="drop-shadow-2xl" />
+      {/* ========================================= */}
+      {/* HÌNH ẢNH MEANDHER.PNG ĐÃ ĐƯỢC PHÓNG TO */}
+      {/* ========================================= */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8, rotate: -5 }} 
+        animate={{ opacity: 1, scale: 1, rotate: -2 }} 
+        whileHover={{ scale: 1.05, rotate: 0, zIndex: 50 }} // Hover vào sẽ phóng to và mất độ nghiêng
+        transition={{ delay: 0.3, duration: 2, ease: "easeOut" }} 
+        // Tăng size từ w-72 lên w-[450px] cho Desktop
+        className="relative w-72 h-72 md:w-[400px] md:h-[400px] shrink-0 z-30 group"
+      >
+        <Polaroid 
+          src="/meandher.png" 
+          rotation={0} 
+          className="drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]" 
+        />
+        
       </motion.div>
 
-      <div className="flex flex-col items-center md:items-start text-center md:text-left relative z-10 max-w-full md:max-w-lg">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 2.5, ease: [0.25, 0.1, 0.25, 1] }} className="font-caveat text-ink leading-tight">
+      <div className="flex flex-col items-center md:items-start text-center md:text-left relative z-20 max-w-full md:max-w-lg">
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 2.5 }} className="font-caveat text-ink leading-tight">
           <span className="block text-3xl md:text-6xl text-terracotta/80 rotate-[-2deg]">Happy Birthday</span>
           <span className="block text-5xl md:text-8xl mt-2 rotate-[1deg] font-bold text-terracotta break-words">M¡chelle*✩</span>
         </motion.h1>
         
-        <motion.div initial={{ opacity: 0, scale: 0.95, rotate: 2 }} animate={{ opacity: 1, scale: 1, rotate: 2 }} transition={{ delay: 1.8, duration: 2.5, ease: [0.25, 0.1, 0.25, 1] }} className="mt-8 md:mt-12 bg-journal-bg/50 p-6 md:p-8 organic-border paper-shadow rotate-[2deg] w-full max-w-sm border border-journal-dim relative z-10">
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.5, duration: 2 }} className="mt-8 md:mt-12 bg-journal-bg/60 p-6 md:p-8 organic-border paper-shadow rotate-[1deg] w-full max-w-sm border border-journal-dim relative z-10 backdrop-blur-sm">
           <WashiTape src="/tape1.png" className="-top-3 right-4 w-40 rotate-5" />
           <div className="font-serif text-ink-variant flex flex-col gap-4 relative z-30">
-            <p className="text-base md:text-xl leading-relaxed">¡Feliz Cumpleaños! Que este nuevo año te traiga endless joy, beautiful moments, y muchísimas aventuras.</p>
+            <p className="text-base md:text-xl leading-relaxed font-medium">¡Feliz Cumpleaños! Que este nuevo año te traiga endless joy, beautiful moments, y muchísimas aventuras.</p>
             <p className="text-lg md:text-2xl italic">"Never lose your whimsy & <span className="sparkle-text font-bold">chispa</span>"</p>
-            <button onClick={handleOpenCake} className="mt-4 bg-terracotta/90 hover:bg-terracotta text-white py-3 rounded-md font-mono text-sm tracking-widest shadow-md hover:shadow-lg transition-all hover:-translate-y-1">
+            <button onClick={handleOpenCake} className="mt-4 bg-terracotta/90 hover:bg-terracotta text-white py-3 rounded-md font-mono text-sm tracking-widest shadow-md hover:shadow-lg transition-all hover:-translate-y-1 active:scale-95">
               Click me
             </button>
           </div>
         </motion.div>
       </div>
 
-      {/* ========================================= */}
-      {/* POPUP BÁNH SINH NHẬT KHỔNG LỒ */}
-      {/* ========================================= */}
+      {/* POPUP BÁNH SINH NHẬT (Giữ nguyên logic của ông) */}
       <AnimatePresence>
         {showCake && (
           <div 
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#1e1b2e]/90 backdrop-blur-md overflow-hidden"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#1e1b2e]/95 backdrop-blur-md overflow-hidden"
             onClick={() => setShowCake(false)}
           >
             {/* ĐỐM SÁNG BAY BACKGROUND */}
@@ -96,7 +109,6 @@ const Home: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               
-              {/* PHÁO HOA KHI THỔI NẾN */}
               <AnimatePresence>
                 {blown && (
                   <div className="absolute top-1/2 left-1/2 pointer-events-none z-50">
@@ -114,54 +126,35 @@ const Home: React.FC = () => {
                 )}
               </AnimatePresence>
 
-              {/* ========================================= */}
-              {/* KHU VỰC BÁNH KEM & NGỌN LỬA */}
-              {/* ========================================= */}
               <div className="relative flex flex-col items-center justify-center mt-12">
-                
-                {/* ẢNH BÁNH KEM */}
                 <img 
                   src="/cake.png" 
                   alt="Birthday Cake" 
                   className="w-80 md:w-[450px] lg:w-[500px] h-auto object-contain drop-shadow-2xl relative z-10" 
                 />
 
-                {/* ==================================================== */}
-                {/* NGỌN LỬA ĐƯỢC VẼ BẰNG CODE CSS THUẦN (STYLE ILLUSTRATION) */}
-                {/* ==================================================== */}
                 <AnimatePresence>
                   {!blown ? (
                     <motion.div
                       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: -10, scale: 0, y: -20 }}
                       className="absolute top-[16%] z-20 flex flex-col items-center justify-end h-12 w-10"
                     >
-                      {/* Vùng hào quang sáng vàng (glow) */}
                       <motion.div 
                         animate={{ opacity: [0.5, 0.8, 0.5], scale: [0.95, 1.05, 0.95] }} 
                         transition={{ repeat: Infinity, duration: 0.5 }} 
                         className="absolute bottom-2 w-20 h-20 bg-yellow-500 rounded-full blur-2xl opacity-50 pointer-events-none" 
                       />
-                      
-                      {/* Cấu trúc ngọn lửa */}
                       <motion.div
-                        // Animation cho ngọn lửa rung rinh
                         animate={{ scale: [1, 1.05, 1], rotate: [-2, 3, -1], skewX: [-2, 2, -1] }}
                         transition={{ repeat: Infinity, duration: 0.15 }}
                         className="relative w-12 h-14 origin-bottom z-10 flex justify-center items-end"
                       >
-                        {/* Lớp ngoài cùng (Màu Cam Đỏ) + Viền nâu chuẩn style vẽ */}
                         <div className="absolute bottom-0 w-10 h-10 bg-[#e85033] border-[2px] border-[#3d271d] rounded-[50%_0_50%_50%] -rotate-45 shadow-[inset_-2px_2px_4px_rgba(0,0,0,0.2)]" />
-                        
-                        {/* Lớp giữa (Màu Cam Sáng) */}
                         <div className="absolute bottom-[3px] w-6 h-6 bg-[#fb9b40] border-[1px] border-[#3d271d]/50 rounded-[50%_0_50%_50%] -rotate-45" />
-                        
-                        {/* Lớp lõi trong cùng (Màu Vàng Chanh) */}
                         <div className="absolute bottom-[6px] w-3 h-3 bg-[#fde047] rounded-[50%_0_50%_50%] -rotate-45" />
                       </motion.div>
-
                     </motion.div>
                   ) : (
-                    /* HIỆU ỨNG KHÓI BAY LÊN KHI TẮT NẾN */
                     <motion.div
                       initial={{ opacity: 0.8, y: -10, scale: 0.5 }}
                       animate={{ opacity: 0, y: -100, scale: 3, x: [0, -20, 20, -10] }}
@@ -172,12 +165,11 @@ const Home: React.FC = () => {
                 </AnimatePresence>
               </div>
 
-              {/* NÚT TƯƠNG TÁC & LỜI CHÚC */}
               <div className="mt-8 md:mt-12 h-24 flex items-center justify-center z-20">
                 {!blown ? (
                   <button 
                     onClick={() => setBlown(true)} 
-                    className="bg-white/10 hover:bg-terracotta/80 text-white px-8 py-3 rounded-full backdrop-blur-md font-mono tracking-widest transition-all border border-white/30 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] animate-pulse cursor-pointer"
+                    className="bg-white/10 hover:bg-terracotta/80 text-white px-8 py-3 rounded-full backdrop-blur-md font-mono tracking-widest transition-all border border-white/30 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] animate-pulse"
                   >
                     BLOW THE CANDLE 💨
                   </button>
@@ -194,12 +186,10 @@ const Home: React.FC = () => {
                   </motion.div>
                 )}
               </div>
-
             </motion.div>
           </div>
         )}
       </AnimatePresence>
-
     </div>
   );
 };
